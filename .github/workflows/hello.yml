@@ -25,3 +25,6 @@ jobs:
       
       - name: runner's operating system
         run: uname -a 
+
+      - name: misspelled command
+        run: misspelledcommand
