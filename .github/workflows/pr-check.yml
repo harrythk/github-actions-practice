@@ -9,5 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print PR branch name
-        uses: echo "PR check running for branch is ${{ github.head_ref }}"
-
+        run: echo "PR check running for branch is ${{ github.head_ref }}"
