@@ -3,11 +3,13 @@ name: PR Check
 on:
   pull_request:
     branches: [main]
+  
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   branch-name:
     runs-on: ubuntu-latest
     steps:
       - name: Print PR branch name
-        uses: echo "PR check running for branch is ${{ github.head_ref }}"
-
+        run: echo "PR check running for branch is ${{ github.head_ref }}"
