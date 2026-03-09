@@ -11,7 +11,7 @@ jobs:
       DOCKER_TAG: ${{ github.event.workflow_run.head_sha }}
     steps:
       - name: Checkout code
-        uses: actions/checout@v4
+        uses: actions/checkout@v4
 
       - name: SSH to prod Server and create App directory
         uses: appleboy/ssh-action@v1.0.3
