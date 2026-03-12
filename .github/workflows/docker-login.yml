@@ -9,9 +9,9 @@ jobs:
     steps:
       - name: Docker login check using secrets
         env:
-          DOCKER_USERNAME: ${{ var.DOCKER_USERNAME }}
+          DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-        run:
+        run: |
           echo "$DOCKER_TOKEN" | docker login \
           --username "$DOCKER_USERNAME" \
           --password-stdin
