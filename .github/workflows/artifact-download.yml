@@ -7,6 +7,9 @@ jobs:
   artifact-generate:
     runs-on: ubuntu-latest
     steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+
       - name: generating a report
         run: |
           mkdir -p Reports
@@ -14,4 +17,7 @@ jobs:
           ls -la >> Reports/test.log
       
       - name: downloading report
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: Reports/test.log
