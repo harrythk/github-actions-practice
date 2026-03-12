@@ -1,0 +1,17 @@
+name: Artifact generate and download
+
+on:
+  workflow_dispatch:
+
+jobs:
+  artifact-generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: generating a report
+        run: |
+          mkdir -p Reports
+          echo "Test result summary" >> Reports/test.log
+          ls -la >> Reports/test.log
+      
+      - name: downloading report
+        uses: actions/upload-artifact
