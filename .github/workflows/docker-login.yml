@@ -1,0 +1,17 @@
+name: Docker Login Test
+
+on:
+  workflow_dispatch
+
+jobs:
+  docker-login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker login check using secrets
+        env:
+          DOCKER_USERNAME: ${{ var.DOCKER_USERNAME }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+        run:
+          echo "$DOCKER_TOKEN" | docker login \
+          --username "$DOCKER_USERNAME" \
+          --password-stdin
