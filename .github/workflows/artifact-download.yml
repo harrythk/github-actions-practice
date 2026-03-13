@@ -16,8 +16,21 @@ jobs:
           echo "Test result summary" >> Reports/test.log
           ls -la >> Reports/test.log
       
-      - name: downloading report
+      - name: uploading report
         uses: actions/upload-artifact@v4
         with:
           name: test-report
           path: Reports/test.log
+  
+  artifact-download:
+    runs-on: ubuntu-latest
+    needs: [artifact-generate]
+    steps:
+      - name: downloading report
+        uses: actions/download-artifact@v4
+        with:
+          name: test-report
+          path: Reports/test.log
+      
+      - name: use of artifact
+        run: cat Reports/test.log
