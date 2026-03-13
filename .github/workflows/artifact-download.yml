@@ -30,7 +30,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: test-report
-          path: Reports/test.log
+          path: Reports
       
       - name: use of artifact
         run: cat Reports/test.log
