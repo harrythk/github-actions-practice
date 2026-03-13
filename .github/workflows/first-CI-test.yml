@@ -1,0 +1,29 @@
+name: Testing in CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  first-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
+      
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version '3.12'
+      
+      - name: run program
+        run: python3 hello.py
+      
+      - name: exit on failure
+        if: failure()
+        run: |
+          echo "Script failed"
+          exit 1
+        
+
+
